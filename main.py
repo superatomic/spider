@@ -6,13 +6,12 @@ __author__ = 'Ethan Kinnear - [superatomic](https://github.com/superatomic)'
 import turtle
 from math import tau  # 0.5 * tau = pi (https://tauday.com/tau-manifesto)
 
-SCALE = 20
 
+SCALE = 20
 
 BODY_SIZE = 4 * SCALE
 LEG_THICKNESS = SCALE // 2  # 5
 LEG_LENGTH = 7 * SCALE
-
 
 # Define the layout of the spider.
 # `L` is leg, `E` is eye, and ` ` is nothing.
