@@ -1,7 +1,7 @@
 """
 Draws a spider using tkinter (via turtle).
 """
-__author__ = 'Ethan Kinnear - [superatomic](https://github.com/superatomic)'
+__author__ = 'Ethan Kinnear (https://github.com/superatomic)'
 
 import turtle
 from math import tau  # 0.5 * tau = pi (https://tauday.com/tau-manifesto)
