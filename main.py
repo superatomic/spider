@@ -42,7 +42,6 @@ def draw_body_part(part, pen: turtle.RawPen) -> None:
     :param pen: The turtle.
     """
     if part == 'L':  # Leg
-        pen.pencolor('black')
         pen.down()
         pen.forward(LEG_LENGTH)
     elif part == 'E':  # Eye
@@ -63,6 +62,7 @@ def main():
 
     # Pen Setup
     pen = turtle.RawPen(screen, visible=False)
+    pen.pencolor('black')
     pen.speed('fastest')
     pen.radians()
 
