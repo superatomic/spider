@@ -7,11 +7,19 @@ import turtle
 from math import tau  # 0.5 * tau = pi (https://tauday.com/tau-manifesto)
 
 
+# The main scaling constant. If you want to make the spider bigger or smaller, change this.
 SCALE = 20
 
+# Spider properties
 BODY_SIZE = 4 * SCALE
 LEG_THICKNESS = SCALE // 2  # 5
 LEG_LENGTH = 7 * SCALE
+
+# WINDOW_SIZE is the actual size of the window, and SCREEN_SIZE is the area that is scrollable.
+WINDOW_SIZE = 20 * SCALE
+SCREEN_SIZE = 2 * LEG_LENGTH + LEG_THICKNESS
+
+assert WINDOW_SIZE > SCREEN_SIZE
 
 # Define the layout of the spider.
 # `L` is leg, `E` is eye, and ` ` is nothing.
@@ -56,7 +64,8 @@ def main():
 
     # Screen Setup
     screen = turtle.Screen()
-    screen.setup(width=412, height=412)
+    screen.setup(width=WINDOW_SIZE, height=WINDOW_SIZE)
+    screen.screensize(SCREEN_SIZE, SCREEN_SIZE)
     screen.title('Spider')
 
     # Pen Setup
