@@ -6,6 +6,7 @@ __author__ = 'Ethan Kinnear (https://github.com/superatomic)'
 import turtle
 from math import tau  # 0.5 * tau = pi (https://tauday.com/tau-manifesto)
 
+from generate_images import save
 
 # The main scaling constant. If you want to make the spider bigger or smaller, change this.
 SCALE = 20
@@ -15,9 +16,13 @@ BODY_SIZE = 4 * SCALE
 LEG_THICKNESS = SCALE // 2  # 5
 LEG_LENGTH = 7 * SCALE
 
+# Configuration for the circle that is drawn around the spider
+DRAW_BACKGROUND = True  # Set to `False` to not draw a circle in the background
+CIRCLE_BORDER_SIZE = SCALE
+
 # WINDOW_SIZE is the actual size of the window, and SCREEN_SIZE is the area that is scrollable.
 WINDOW_SIZE = 20 * SCALE
-SCREEN_SIZE = 2 * LEG_LENGTH + LEG_THICKNESS
+SCREEN_SIZE = 2 * (LEG_LENGTH + CIRCLE_BORDER_SIZE if DRAW_BACKGROUND else 0) + LEG_THICKNESS
 
 assert WINDOW_SIZE > SCREEN_SIZE
 
@@ -74,8 +79,15 @@ def main():
     pen.speed('fastest')
     pen.radians()
 
+    # Create circle in the background of the turtle.
+    if DRAW_BACKGROUND:
+        pen.dot(SCREEN_SIZE, 'white')
+
     # Draw the Spider
     draw_spider(pen)
+
+    # Save the spider as a PostScript file, and as an SVG and PNG file if Inkscape is installed.
+    save(screen)
 
     # Mainloop until the window is clicked
     screen.exitonclick()
