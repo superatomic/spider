@@ -65,7 +65,31 @@ def draw_body_part(part, pen: turtle.RawPen) -> None:
         raise ValueError("TURTLE_BODY_PARTS should only contain the characters 'L', 'E', and ' '")
 
 
-def main():
+def draw_box(screen: turtle.Screen, size: int, color: str) -> None:
+    """
+    Draws a solid square background of a certain color and size.
+    :param screen: The screen object to draw the box on.
+    :param size: The size of the box from side to side.
+    :param color: The color of the square.
+    """
+    size = size // 2  # Use the distance from the side of the box to the center instead of from side to side.
+
+    # Pen Setup
+    pen = turtle.RawPen(screen, visible=False)
+    pen.color(color)
+    pen.up()
+    pen.color(color)
+
+    # Draw the box
+    pen.goto(-size, -size)
+    pen.begin_fill()
+    pen.goto(size, -size)
+    pen.goto(size, size)
+    pen.goto(-size, size)
+    pen.end_fill()
+
+
+def main(background='circle'):
 
     # Screen Setup
     screen = turtle.Screen()
@@ -83,15 +107,25 @@ def main():
     if DRAW_BACKGROUND:
         pen.dot(SCREEN_SIZE, 'white')
 
+    # Create circle in the background of the turtle.
+    if DRAW_BACKGROUND:
+        if background == 'circle':
+            pen.dot(SCREEN_SIZE, 'white')
+        elif background == 'square':
+            draw_box(screen, SCREEN_SIZE, 'white')
+        else:
+            raise ValueError('Invalid `background` shape: Must be "circle" or "square"')
+
     # Draw the Spider
     draw_spider(pen)
 
     # Save the spider as a PostScript file, and as an SVG and PNG file if Inkscape is installed.
-    save(screen)
+    save(screen, directory=f'imgs/{background}')
 
-    # Mainloop until the window is clicked
-    screen.exitonclick()
+    # Clear the screen for the next drawing.
+    screen.clear()
 
 
 if __name__ == '__main__':
-    main()
+    main(background='circle')
+    main(background='square')

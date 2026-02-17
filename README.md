@@ -1,10 +1,10 @@
 # Spider Drawing with Python's `turtle`
 This is a very basic script to draw a spider with Python's [`turtle`](https://docs.python.org/3/library/turtle.html) graphics module.
 
-The resulting graphic is saved as a PostScript file to [`imgs/spider.ps`](imgs/spider.ps).
+The resulting graphic is saved as a PostScript file to [`imgs/{circle,square}/spider.ps`](imgs/square/spider.ps).
 
 If [Inkscape] is installed, SVG and PNG versions will be generated from the PostScript representation.
-These images can be found at [`imgs/spider.svg`](imgs/spider.svg) and [`imgs/spider.png`](imgs/spider.png), respectively.
+These images can be found at [`imgs/{circle,square}/spider.svg`](imgs/square/spider.svg) and [`imgs/{circle,square}/spider.png`](imgs/square/spider.png), respectively.
 
 The rendered drawing is used as [my profile image](https://github.com/superatomic).
 
