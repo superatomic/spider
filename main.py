@@ -77,8 +77,9 @@ def draw_box(screen: turtle.Screen, size: int, color: str) -> None:
     # Pen Setup
     pen = turtle.RawPen(screen, visible=False)
     pen.color(color)
+    pen.speed('fastest')
+    pen.radians()
     pen.up()
-    pen.color(color)
 
     # Draw the box
     pen.goto(-size, -size)
