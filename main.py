@@ -17,7 +17,7 @@ LEG_LENGTH = 7 * SCALE
 # Define the layout of the spider.
 # `L` is leg, `E` is eye, and ` ` is nothing.
 # noinspection SpellCheckingInspection
-TURTLE_BODY_PARTS = r'LLLL LLLL' 'EE'
+TURTLE_BODY_PARTS = 'LLLL LLLL' 'EE'
 
 
 def draw_spider(pen: turtle.RawPen) -> None:
